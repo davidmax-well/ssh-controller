@@ -14,10 +14,13 @@ class Server:
 
     @property
     def key_file_path(self):
+        
         # Gives access to the private key path 
         return self.key_file_path                                   
     
     def connect(self):
+        
+        # Establish an SSH connection using the provided credentials
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         try:
