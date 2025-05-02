@@ -14,7 +14,7 @@ class Server:
 
     @property
     def key_file_path(self):
-        
+
         # Gives access to the private key path 
         return self.key_file_path                                   
     
@@ -33,3 +33,19 @@ class Server:
         except Exception as e:
             print(f"Connection failed! {e}")
             return None
+
+    def set_key_path(self, path):
+
+        # Set the private key path 
+        if not path or not isinstance(path, str):
+            raise ValueError("Invalid private key path!")
+        self._key_file_path = path
+
+    def get_server_info(self):
+
+        #return basic info
+        return {
+            "name": self.name
+            "host": self.host
+            "username": self.username
+        }
